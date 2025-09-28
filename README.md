@@ -77,8 +77,11 @@ The solution leverages **EC2, RDS, And VPC** to ensure scalability, security, an
 📈 Outcomes
 
 -Hosting a full-stack dynamic application on AWS.
+
 -Configuring secure and scalable infrastructure.
+
 -Hands-on experience with EC2, RDS, VPC.
+
 -Understanding real-time interaction between frontend and backend services.
 
 
