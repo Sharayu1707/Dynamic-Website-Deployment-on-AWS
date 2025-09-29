@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AWS Dynamic Website</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f4f7fb;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    header {
+      background: #0073e6;
+      color: #fff;
+      padding: 15px 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo { font-size: 1.5rem; font-weight: bold; }
+
+    .nav-links { list-style: none; display: flex; gap: 20px; }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .nav-links a:hover { color: #ffd700; }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(to right, #0073e6, #00c6ff);
+      color: white;
+      border-radius: 0 0 20px 20px;
+    }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+    /* Form Section */
+    .form-section {
+      background: white;
+      margin: 40px auto;
+      padding: 30px;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    input {
+      flex: 1;
+      padding: 12px;
+      font-size: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+      transition: 0.3s;
+    }
+    input:focus { border-color: #0073e6; }
+
+    button {
+      padding: 12px 20px;
+      background: #0073e6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+    button:hover { background: #005bb5; }
+
+    /* Messages Section */
+    .messages {
+      max-width: 700px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .messages ul { list-style: none; margin-top: 15px; }
+    .messages li {
+      padding: 10px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #eee;
+    }
+    .messages li:last-child { border-bottom: none; }
+
+    /* Footer */
+    footer {
+      background: #0073e6;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      border-radius: 20px 20px 0 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">AWS DynamicSite</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#messages">Messages</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>🚀 Welcome to AWS Dynamic Website</h1>
+    <p>A modern dynamic site hosted on AWS EC2 + RDS + S3.</p>
+  </section>
+
+  <!-- Form -->
+  <section class="form-section">
+    <h2>Leave a Message</h2>
+    <form id="msgForm">
+      <input type="text" id="msgInput" placeholder="Write your message..." required/>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- Messages -->
+  <section class="messages" id="messages">
+    <h2>💬 Recent Messages</h2>
+    <ul id="msgList"><li>Loading messages...</li></ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Dynamic Website on AWS | Built with ❤️</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const apiBase = "/api"; // Adjust if backend is on another domain
+    const form = document.getElementById("msgForm");
+    const input = document.getElementById("msgInput");
+    const list = document.getElementById("msgList");
+
+    // Escape HTML to prevent XSS
+    function escapeHtml(s){
+      return s.replace(/[&<>"']/g, c => (
+        {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;'}[c]
+      ));
+    }
+
+    async function fetchMessages() {
+      try {
+        const res = await fetch(`${apiBase}/messages`);
+        const data = await res.json();
+        list.innerHTML = data.map(m =>
+          `<li><strong>#${m.id}</strong> ${escapeHtml(m.text)} <small>(${m.created_at})</small></li>`
+        ).join('') || "<li>No messages yet.</li>";
+      } catch (err) {
+        list.innerHTML = "<li>Error loading messages.</li>";
+      }
+    }
+
+    form.addEventListener("submit", async e => {
+      e.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+      await fetch(`${apiBase}/messages`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text })
+      });
+      input.value = "";
+      fetchMessages();
+    });
+
+    // Initial load + auto refresh every 5s
+    fetchMessages();
+    setInterval(fetchMessages, 5000);
+  </script>
+</body>
+</html>
