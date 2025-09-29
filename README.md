@@ -118,7 +118,7 @@ Create 3 Server on AWS
 
 ## Step 4:
 
-
+![Architecture](images/img-8.png)
   
 📈 Outcomes
 
