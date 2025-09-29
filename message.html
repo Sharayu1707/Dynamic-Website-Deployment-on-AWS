@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages Page</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+    header {
+      background: #0073e6;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #0073e6;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+    .msg-text {
+      font-size: 1rem;
+      color: #444;
+    }
+    .msg-time {
+      font-size: 0.85rem;
+      color: #777;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #0073e6;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>📩 Messages</h2>
+  </header>
+
+  <div class="container">
+    <h1>Recent Messages</h1>
+    <ul>
+      <li>
+        <span class="msg-text">Hello AWS! 🚀</span>
+        <span class="msg-time">2025-09-29 10:15</span>
+      </li>
+      <li>
+        <span class="msg-text">This is my first dynamic website 🎉</span>
+        <span class="msg-time">2025-09-29 10:20</span>
+      </li>
+      <li>
+        <span class="msg-text">Database connected successfully ✅</span>
+        <span class="msg-time">2025-09-29 10:30</span>
+      </li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>© 2025 Dynamic Website on AWS</p>
+  </footer>
+</body>
+</html>
