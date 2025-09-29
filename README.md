@@ -97,6 +97,28 @@ Create **Internet Gateway**
 Create **Database**
 
 ![Architecture](images/img-5.png)
+
+Create **Subnet Group**
+
+![Architecture](images/img-6.png)
+
+## Step 3:
+
+Create 3 Server on AWS
+
+1.Create Web-Server
+
+2.Create App-Server
+
+3.Create Jump-Server
+
+
+![Architecture](images/img-7.png)
+
+
+## Step 4:
+
+
   
 📈 Outcomes
 
