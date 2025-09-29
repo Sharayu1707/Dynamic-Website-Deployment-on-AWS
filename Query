@@ -1,0 +1,33 @@
+CREATE TABLE :
+
+CREATE TABLE messages (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  text VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT TABLE :
+
+INSERT INTO messages (text) VALUES ('Hello AWS!');
+INSERT INTO messages (text) VALUES ('This is my first dynamic website.');
+
+READ DATA :
+
+-- Get all message
+SELECT * FROM messages;
+
+-- Get latest 10 messages
+SELECT * FROM messages ORDER BY id DESC LIMIT 10;
+
+UPDATE DATA :
+
+UPDATE messages
+SET text = 'Updated message text'
+WHERE id = 1;
+
+COUTE RECORD :
+
+SELECT COUNT(*) AS total_messages FROM messages;
+
+
+
