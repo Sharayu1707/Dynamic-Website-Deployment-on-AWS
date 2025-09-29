@@ -72,7 +72,31 @@ The solution leverages **EC2, RDS, And VPC** to ensure scalability, security, an
 - Enforced **Security Group rules** to restrict unwanted traffic.
 
 
+## Step 1:
 
+Create **vpc** :
+
+![Architecture](images/img-1.png)
+
+
+Create **Subnet** :
+
+![Architecture](images/img-2.png)
+
+Create **Route Table** :
+
+![Architecture](images/img-3.png)
+
+Create **Internet Gateway**
+
+![Architecture](images/img-4.png)
+
+
+## Step 2:
+
+Create **Database**
+
+![Architecture](images/img-5.png)
   
 📈 Outcomes
 
