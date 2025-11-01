@@ -1,12 +1,12 @@
 # Dynamic-Website-Deployment-on-AWS
 
-## 📌 Introduction
+##  Introduction
 This project demonstrates the deployment of a **dynamic web application** on **Amazon Web Services (AWS)** to enable real-time interaction between users and backend services.  
 The solution leverages **EC2, RDS, And VPC** to ensure scalability, security, and availability.
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 🚀 Architecture
+##  Architecture
 
 
             +------------------------+
@@ -44,14 +44,14 @@ The solution leverages **EC2, RDS, And VPC** to ensure scalability, security, an
 
 
 
-## 🛠️ AWS Services Used
+##  AWS Services Used
 - **Amazon EC2** – to host the application stack.  
 - **Amazon RDS (MySQL)** – for database operations.  
 - **Amazon VPC** – for creating isolated and secure network architecture.   
 - **Security Groups** – to control traffic between layers.
 
 
-## ⚙️ Tech Stack
+##  Tech Stack
 - **Frontend**: HTML, CSS
 - **Backend**: Node.js, PHP, Nginx  
 - **Database**: MySQL (Amazon RDS)  
@@ -59,7 +59,7 @@ The solution leverages **EC2, RDS, And VPC** to ensure scalability, security, an
 
 
 
-## 📂 Project Workflow
+##  Project Workflow
 1.**VPC** with public and private subnets,Route table,.  
 2. Launch **EC2 instances** in public subnet for hosting Nginx, PHP.  
 3. Configure **Amazon RDS (MySQL)** in private subnet for database layer.  
@@ -67,14 +67,15 @@ The solution leverages **EC2, RDS, And VPC** to ensure scalability, security, an
 5. Deploy the dynamic website and test **real-time user interactions**.  
 
 
-## 🔒 Security Considerations
+##  Security Considerations
 - Used **VPC subnets** for isolation of application and database layers.    
 - Enforced **Security Group rules** to restrict unwanted traffic.
 
+## Steps to deployment :
 
-## Step 1:
+### Step 1:
 
-Create **vpc** :
+Create **vpc** 
 
 ![Architecture](images/img-1.png)
 
@@ -92,7 +93,7 @@ Create **Internet Gateway**
 ![Architecture](images/img-4.png)
 
 
-## Step 2:
+### Step 2:
 
 Create **Database**
 
@@ -102,7 +103,7 @@ Create **Subnet Group**
 
 ![Architecture](images/img-6.png)
 
-## Step 3:
+### Step 3:
 
 Create 3 Server on AWS
 
@@ -116,11 +117,11 @@ Create 3 Server on AWS
 ![Architecture](images/img-7.png)
 
 
-## Step 4:
+### Step 4:
 
 ![Architecture](images/img-8.png)
   
-📈 Outcomes
+## Outcomes
 
 -Hosting a full-stack dynamic application on AWS.
 
